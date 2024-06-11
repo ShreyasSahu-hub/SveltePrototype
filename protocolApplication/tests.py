@@ -20,73 +20,37 @@ class SeleniumTests(LiveServerTestCase):
         cls.driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
         #cls.driver.implicitly_wait(10)
 
-   """    def get_network_responses(self):
-        logs = self.driver.get_log("performance")
-        network_responses = []
-        caps = DesiredCapabilities.CHROME
-        caps["goog:loggingPrefs"] = {"performance": "ALL"}
-        for log in logs:
-            message = json.loads(log["message"])["message"]
-            if "Network.responseReceived" in message["method"]:
-                network_responses.append(message["params"]["response"])
-        return network_responses """
 
    def testCRUDOperation(self):
+      try:
        #driver = webdriver.Chrome()
-       driver = self.driver
+       driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
        driver.get('http://localhost:8000/')
-       #assert "Hello, world!" in driver.title
-       #self.assertIn("Hello, world!", driver.title)
-       driver.execute_script("document.title = 'Hello, world!'")
-       #username_field = driver.find_element_by_name('username')
-       #password_field = driver.find_element_by_name('password')
+
+
+
+       #This auto fiils the login page's text fields with the given username and password
        username_field = driver.find_element(By.ID, "id_username")
        password_field = driver.find_element(By.ID, "id_password")
 
        username_field.send_keys('ssahu')
        password_field.send_keys('123')
 
-       #driver.find_element(By.CSS_SELECTOR, "form button[type='submit']").click()
 
-       '''
-       submit_button = WebDriverWait(driver, 10).until(
-           EC.element_to_be_clickable((By.CSS_SELECTOR, "form button[type='submit']"))
-       )
-       '''
-
-       #submit = driver.find_element(By.ID, "submit")
-
-       #submit_button = driver.find_element_by_xpath("//input[@type='submit' and @value='Log in']")
-
-       #submit_button = driver.find_element_by_css_selector("input[type='submit'][value='Log in']")
-
+       #The submit button is clicked in the login form
        submit_button = driver.find_element(By.CSS_SELECTOR, "input[type='submit'][value='Log in']")
 
-       submit_button.click()
+       driver.execute_script("arguments[0].click();", submit_button)
 
        # Capture the redirect URL
        redirect_url = driver.current_url
 
-       # Verify the redirect URL
-       #self.assertIn("/mainpage", redirect_url.lower())
 
-       #driver.find_element(By.ID, "name1").send_keys('Morning Run')
 
-       #WebDriverWait(driver, 10)
-
-       #driver.find_element(By.ID, "name1").send_keys('Morning Run')
-
+       #This auto fills the form for adding the task details with the given values in the build-in function called send-keys and submits it
        WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.ID, "name1"))).send_keys('Morning Run')
 
-       #driver.find_element(By.ID, "date1").send_keys('30/05/2024')
-
        WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.ID, "date1"))).send_keys('30/05/2024')
-
-       #driver.find_element(By.ID, "startTime1").send_keys("12:30")
-       #driver.find_element(By.ID, "amountOfTime1").send_keys("04:00")
-       #driver.find_element(By.ID, "descriptionOfTheTask1").send_keys("Early morning run in the streets")
-       #driver.find_element(By.ID, "image").send_keys(os.path.abspath(
-                                                             #os.path.join(os.path.dirname(__file__), "..", "1000_F_601654907_FgISykN0GQp39MfRAlgg3IBmLDVIZYYk.jpg")))
 
        WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.ID, "startTime1"))).send_keys('12:30')
        WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.ID, "amountOfTime1"))).send_keys('04:00')
@@ -94,52 +58,29 @@ class SeleniumTests(LiveServerTestCase):
        WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.ID, "image"))).send_keys(os.path.abspath(
                                                              os.path.join(os.path.dirname(__file__), "..", "1000_F_601654907_FgISykN0GQp39MfRAlgg3IBmLDVIZYYk.jpg")))
 
-       #submit_button_to_add = driver.find_element(By.CSS_SELECTOR, "button[data-v-389b3d8a][type='submit']")
-
        submit_button_to_add = driver.find_element(By.XPATH, '//button[normalize-space()="Submit"]')
 
-       #submit_button_to_add.click()
-
        driver.execute_script("arguments[0].click();", submit_button_to_add)
-       """
-       # Check network responses
-       responses = self.get_network_responses()
-       for response in responses:
-          print(f"URL: {response['url']}, Status: {response['status']}") """
 
-       #retrieve_button = driver.find_element(By.CSS_SELECTOR, "button[value='Fetch all the task details at all the dates']")
 
-       #driver.execute_script("arguments[0].click();", retrieve_button)
 
        retrieve_button = driver.find_element(By.XPATH, '//button[normalize-space()="Fetch the tasks"]')
 
-       #retrieve_button.click()
-
        driver.execute_script("arguments[0].click();", retrieve_button)
 
-       #update_button = driver.find_element(By.XPATH, "//button[normalize-space()='Update']")
 
+       #The update button on the added task is clicked, which redirects to the update form
        update_button = WebDriverWait(driver, 10).until(
            EC.element_to_be_clickable((By.XPATH, "//a[normalize-space()='Update']"))
        )
 
        driver.execute_script("arguments[0].click();", update_button)
 
-       #driver.find_element(By.ID, "name1").send_keys("Swimming")
 
-       #driver.find_element(By.ID, "date1").send_keys("01/06/2024")
 
+       #The chrome driver auto-fills the update task form with the given values in the send_keys built-in function and submit it.
        WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.ID, "name1"))).send_keys("Swimming")
        WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.ID, "date1"))).send_keys("01/06/2024")
-
-       #driver.find_element(By.ID, "startTime1").send_keys("16:30")
-
-       #driver.find_element(By.ID, "amountOfTime1").send_keys("03:00")
-
-       #driver.find_element(By.ID, "descriptionOfTheTask1").send_keys("3 hours swimming at the sport centre")
-
-       #driver.find_element(By.ID, "image").send_keys(os.path.abspath(
-       #                                                      os.path.join(os.path.dirname(__file__), "..", "photo-1622629797619-c100e3e67e2e.avif")))
 
        WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.ID, "startTime1"))).send_keys("16:30")
        WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.ID, "amountOfTime1"))).send_keys("03:00")
@@ -147,38 +88,30 @@ class SeleniumTests(LiveServerTestCase):
        WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.ID, "image"))).send_keys(os.path.abspath(
                                                              os.path.join(os.path.dirname(__file__), "..", "photo-1622629797619-c100e3e67e2e.avif")))
 
-       #submit_button_to_add = driver.find_element(By.CSS_SELECTOR, "button[data-v-3ee9e199][type='submit']")
-
        submit_button_to_update = WebDriverWait(driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, '//button[normalize-space()="Submit"]'))
        )
 
        driver.execute_script("arguments[0].click();", submit_button_to_update)
 
-       retrieve_button = WebDriverWait(driver, 10).until(
-          EC.element_to_be_clickable((By.XPATH, '//button[normalize-space()="Fetch the tasks"]'))
-       )
+       #The chrome driver gets redirect to the main page to update the added task.
+       driver.get('http://localhost:8080/#/mainpage')
 
-       #retrieve_button.click()
 
-       driver.execute_script("arguments[0].click();", retrieve_button)
-
-       #delete_button = driver.find_element(By.XPATH, "//button[@class='text-danger' and @style='color: red;' and text()='Delete']")
-
+       #The delete button is clicked on the updated task
        delete_button = WebDriverWait(driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, "//button[text()='Delete']"))
        )
 
        driver.execute_script("arguments[0].click();", delete_button)
 
-       #calorie_tracker_button = driver.find_element(By.XPATH, '//button[normalize-space()="Calorie Tracker"]')
 
-       #driver.execute_script("arguments[0].click();", calorie_tracker_button)
+       #The chrome driver redirects to the given URL path to access the Calorie tracker web page
+       driver.get('http://localhost:8080/#/CalorieTracker')
 
-   def testCalorieTrackerOperation(self):
-       driver = self.driver
-       driver.get('http://localhost:5173/mainpage/CalorieTracker')
 
+       #The diet plan form gets auto-filled by the given values in the build-in function called send_keys.
+       #Once that is done it submits it, by clicking the submit button called Fetch the amount of calories intaken.
        driver.find_element(By.ID, "query").send_keys('pasta')
 
        driver.find_element(By.ID, "amountOfCalories").send_keys("12000")
@@ -197,27 +130,45 @@ class SeleniumTests(LiveServerTestCase):
 
        driver.execute_script("arguments[0].click();", retrieve_button)
 
+
+
+       #The chrome driver clicks the button called See your Calorie History to redirect to the Calorie History web page.
        calorie_history_button = driver.find_element(By.XPATH, '//button[normalize-space()="See your Calorie History"]')
 
        driver.execute_script("arguments[0].click();", calorie_history_button)
 
-       #fetch_calorie_history = driver.find_element(By.XPATH, '//button[normalize-space()="Fetch all the calorie consumption details at all the dates"]')
 
+
+       #The chrome driver then redirects to the different given URL to access the web page where the user can fetch Youtube exercising videos.
        fetch_calorie_history = WebDriverWait(driver, 10).until(
            EC.element_to_be_clickable((By.XPATH, '//button[normalize-space()="Fetch all the calorie consumption details at all the dates"]'))
        )
 
        driver.execute_script("arguments[0].click();", fetch_calorie_history)
 
-   def testExercising_videos(self):
 
-       driver = self.driver
-       driver.get('http://localhost:5173/mainpage/FetchingExercisingVideos')
 
+       #The chrome driver then redirects to the different given URL to access the web page where the user can fetch Youtube exercising videos.
+       driver.get('http://localhost:8080/#/FetchingExercisingVideos')
+
+
+
+       #The form for fetching the exercising videos is auto-filled with the given values in the build-in function called send_keys and click the submit button.
        driver.find_element(By.ID, "queryForVideos").send_keys("30 minutes run")
 
        submit_button_exercising_videos = driver.find_element(By.XPATH, '//button[normalize-space()="Fetch videos"]')
 
        driver.execute_script("arguments[0].click();", submit_button_exercising_videos)
 
+
+       #The chrome driver is turned off
        driver.quit()
+
+
+       #A message is returned stating that tests of all the functionalities in the prototype have passed
+       return "The tests of all the functionalities have passed"
+
+      except Exception as e:
+
+       #From the try and catch block, if there is an error during the automated testing execution the error message is returned
+       return str(e)

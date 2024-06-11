@@ -7,6 +7,8 @@ from django.contrib.auth.models import User
 from django.conf import settings
 
 # Create your models here.
+#This python class creates a User table that stores all the necessary user details, which are the username, first name, last name, and their email
+#The username field is the primary key because it's unique.
 class User(AbstractUser):
 
   username = models.CharField(max_length=50, unique=True)
@@ -27,6 +29,12 @@ class User(AbstractUser):
       return {
          'username': self.username,
       }
+
+#This python class creates a tabled called TaskDetails that stores all the essential task details.
+#The id field is included as a primary key to uniquely identify the task detail.
+#The owner field is the foreign key that connects to the username, which is a primary key of the User table.
+#The foreign key is needed to map the tasks details to the right user that it should belong to,
+#or otherwise the database cannot know which task details belongs to which user.
 
 class TaskDetails(models.Model):
       #     name = models.CharField(max_length=128)
@@ -59,6 +67,11 @@ class TaskDetails(models.Model):
              'descriptionOfTheTask':self.descriptionOfTheTask,
              'image': "http://localhost:8000/" +self.image.url,
            }
+
+#This python class creates a table called CalorieDetail in the database, where all the calorie consumption details are recorded.
+#The owner field is the foreign key that connects to the username primary key in the User table.
+#The foreign key is needed to map the calorie consumption details to the right user that it should belong to,
+#or otherwise the database cannot know which calorie consumption belongs to which user.
 
 class CalorieDetail(models.Model):
    amountOfCalories = models.IntegerField()

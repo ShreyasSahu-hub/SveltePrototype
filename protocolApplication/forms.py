@@ -4,6 +4,8 @@ from crispy_forms.helper import FormHelper #This is the FormHelper module from t
 from crispy_forms.layout import Row, Layout, Submit #This is the Row, Layout, and Submit modules from the crispy_forms.layout django library. This is used structure the django form.
 from crispy_forms.bootstrap import FormActions #This is the FormActions module from the crispy_froms.bootstrap django library.
 
+
+#These are the python classes to create the form layout by implementing the essential fields and what type of data should each field accept
 class SignUpForm(forms.Form):
 
      firstName = forms.CharField(

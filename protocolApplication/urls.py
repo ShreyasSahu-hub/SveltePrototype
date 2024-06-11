@@ -31,11 +31,16 @@ Including another URLconf
 from django.urls import path
 # from films.views import FilmListAPIView, FilmDetailAPIView
 #from protocolApplication.views import FilmViewSet
-from protocolApplication.views import TaskViewSet, SignUp, Login,AddTask
-from rest_framework.routers import DefaultRouter
+#from protocolApplication.views import TaskViewSet, SignUp, Login,AddTask
+#from rest_framework.routers import DefaultRouter
+from django.urls import path, include
 
-router = DefaultRouter()
-router.register('tasks', TaskViewSet, basename='tasks')
-urlpatterns = router.urls
+#router = DefaultRouter()
+#router.register('tasks', TaskViewSet, basename='tasks')
+#urlpatterns = router.urls
 
-urlpatterns +=[path('TaskInsert/',AddTask)]
+urlpatterns = [
+
+]
+
+#urlpatterns +=[path('TaskInsert/',AddTask)]

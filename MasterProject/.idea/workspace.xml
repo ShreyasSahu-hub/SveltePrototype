@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="fdfa831c-78cd-49ae-84fb-3e23511921b9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../media/images/1000_F_601654907_FgISykN0GQp39MfRAlgg3IBmLDVIZYYk_SEKkxii.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../media/images/1000_F_601654907_FgISykN0GQp39MfRAlgg3IBmLDVIZYYk_kT8kUBF.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../media/images/body-builder-training-in-industrial-urban-gym-royalty-free-image-1643036272_Jc5rPjU.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../media/images/body-builder-training-in-industrial-urban-gym-royalty-free-image-1643036272_Nk2aqru.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../protocolApplication/frontend/frontend1/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../protocolApplication/frontend/frontend1/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../protocolApplication/frontend/frontend1/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../protocolApplication/frontend/frontend1/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../protocolApplication/frontend/frontend1/public/favicon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../protocolApplication/frontend/frontend1/public/global.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../protocolApplication/frontend/frontend1/public/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../protocolApplication/frontend/frontend1/rollup.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../protocolApplication/frontend/frontend1/scripts/setupTypeScript.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../protocolApplication/frontend/frontend1/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/../db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../protocolApplication/frontend/frontend/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../protocolApplication/frontend/frontend/.npmrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../protocolApplication/frontend/frontend/.vercel/output/static/_app/immutable/assets/6.DZ_T1SZp.css" beforeDir="false" afterPath="$PROJECT_DIR$/../protocolApplication/frontend/frontend1/src/CalorieTracker.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../protocolApplication/frontend/frontend/.vercel/output/static/_app/immutable/assets/_page.DZ_T1SZp.css" beforeDir="false" afterPath="$PROJECT_DIR$/../protocolApplication/frontend/frontend1/src/FetchingExercisingVideos.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../protocolApplication/frontend/frontend/.vercel/output/static/_app/immutable/chunks/entry.B9EOjSRV.js" beforeDir="false" afterPath="$PROJECT_DIR$/../protocolApplication/frontend/frontend1/src/MainPage.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../protocolApplication/frontend/frontend/.vercel/output/static/_app/immutable/chunks/index.ClWzMdZj.js" beforeDir="false" afterPath="$PROJECT_DIR$/../protocolApplication/frontend/frontend1/src/TaskDetail.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../protocolApplication/frontend/frontend/.vercel/output/static/_app/immutable/chunks/scheduler.CvSFXg4c.js" beforeDir="false" afterPath="$PROJECT_DIR$/../protocolApplication/frontend/frontend1/src/calorieHistory.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../protocolApplication/frontend/frontend/.vercel/output/static/_app/immutable/entry/app.BuVLIszb.js" beforeDir="false" afterPath="$PROJECT_DIR$/../protocolApplication/frontend/frontend1/src/routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../protocolApplication/frontend/frontend/.vercel/output/static/_app/immutable/entry/start.BPabHCA2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../protocolApplication/frontend/frontend/.vercel/output/static/_app/immutable/nodes/0.7p9IOLsw.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../protocolApplication/frontend/frontend/.vercel/output/static/_app/immutable/nodes/1.B_Zlz-bt.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../protocolApplication/frontend/frontend/.vercel/output/static/_app/immutable/nodes/2.CPTOHc9_.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../protocolApplication/frontend/frontend/.vercel/output/static/_app/immutable/nodes/3._IzL8vZV.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../protocolApplication/frontend/frontend/.vercel/output/static/_app/immutable/nodes/4.B5pIdY4z.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../protocolApplication/frontend/frontend/.vercel/output/static/_app/immutable/nodes/5.BXAickni.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../protocolApplication/frontend/frontend/.vercel/output/static/_app/immutable/nodes/6.BItRrq4K.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../protocolApplication/frontend/frontend/.vercel/output/static/_app/immutable/nodes/7.CESuOpVs.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../protocolApplication/frontend/frontend/.vercel/output/static/_app/immutable/nodes/8.Bg8bUirY.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../protocolApplication/frontend/frontend/.vercel/output/static/_app/version.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../protocolApplication/frontend/frontend/.vercel/output/static/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../protocolApplication/frontend/frontend/.vercel/output/static/favicon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../protocolApplication/frontend/frontend/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../protocolApplication/frontend/frontend/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../protocolApplication/frontend/frontend/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../protocolApplication/frontend/frontend/src/app.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../protocolApplication/frontend/frontend/src/lib/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../protocolApplication/frontend/frontend/src/routes/+page.svelte" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../protocolApplication/frontend/frontend/src/routes/mainpage/+layout.svelte" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../protocolApplication/frontend/frontend/src/routes/mainpage/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/../protocolApplication/frontend/frontend1/src/App.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../protocolApplication/frontend/frontend/src/routes/mainpage/CalorieTracker/+page.svelte" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../protocolApplication/frontend/frontend/src/routes/mainpage/FetchingExercisingVideos/+page.svelte" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../protocolApplication/frontend/frontend/src/routes/mainpage/[id]/update/+page.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../protocolApplication/frontend/frontend/src/routes/mainpage/[id]/update/+page.svelte" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../protocolApplication/frontend/frontend/src/routes/mainpage/calorieHistory/+page.svelte" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../protocolApplication/frontend/frontend/src/task-store.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../protocolApplication/frontend/frontend/static/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../protocolApplication/frontend/frontend/static/favicon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../protocolApplication/frontend/frontend/svelte.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../protocolApplication/frontend/frontend/vite.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../protocolApplication/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/../protocolApplication/views.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="2hKQyYBKqRAWgwzs7tTdVfggEIj" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$/MasterProject" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fdfa831c-78cd-49ae-84fb-3e23511921b9" name="Changes" comment="" />
+      <created>1717340544414</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1717340544414</updated>
+    </task>
+    <servers />
+  </component>
+</project>

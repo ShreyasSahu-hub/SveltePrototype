@@ -18,7 +18,7 @@ from django.urls import path, include
 #from protocolApplication.views import helloworld,AddTask,UpdateTask,RetrieveTask,DeleteTaskDetails, SignUp, Login
 from django.conf import settings
 from django.conf.urls.static import static
-from protocolApplication.views import TaskViewSet, SignUp, Login, AddTask, FetchTask, UpdateTask, DeleteTask, CalorieTracker, CalorieDetailRetrieved
+from protocolApplication.views import SignUp, Login, AddTask, FetchTask, UpdateTask, DeleteTask, CalorieTracker, CalorieDetailRetrieved, print_test_results
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -32,4 +32,5 @@ urlpatterns = [
     path('TaskDelete/', DeleteTask),
     path('CalorieTracker/',CalorieTracker),
     path('RetrieveCalorieDetails/',CalorieDetailRetrieved),
+    path('test_results/', print_test_results),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
