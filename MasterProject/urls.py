@@ -17,12 +17,13 @@ from django.contrib import admin
 from django.urls import path, include
 #from protocolApplication.views import helloworld,AddTask,UpdateTask,RetrieveTask,DeleteTaskDetails, SignUp, Login
 from django.conf import settings
+from django.http import HttpResponse
 from django.conf.urls.static import static
 from protocolApplication.views import SignUp, Login, AddTask, FetchTask, UpdateTask, DeleteTask, CalorieTracker, CalorieDetailRetrieved, print_test_results
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('protocolApplication.urls')),
+    path('health/', lambda request: HttpResponse("health check")),
     path("login/", Login, name="login"),
     path("", Login, name="login"),
     path("signup/", SignUp, name='signup'),
@@ -33,4 +34,7 @@ urlpatterns = [
     path('CalorieTracker/',CalorieTracker),
     path('RetrieveCalorieDetails/',CalorieDetailRetrieved),
     path('test_results/', print_test_results),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

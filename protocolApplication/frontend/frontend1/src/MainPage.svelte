@@ -20,7 +20,7 @@
 
 
 
-       let response1 = await fetch("http://localhost:8000/TaskFetched/",{
+       let response1 = await fetch("/TaskFetched/",{
 
             method: 'GET',
             credentials: "include"
@@ -164,7 +164,7 @@
 
         //This endpoint variable cannot be changed due to the const keyword and it stores the Django URL for task detail insertion.
 
-        const endpoint = 'http://localhost:8000/TaskInsert/'
+        const endpoint = '/TaskInsert/'
 
 
 
@@ -283,7 +283,7 @@
         //in order to remove the task details.
         //The JSON.stringify method converts the task_id variable to task id mapping to a JSON format, so that the corresponding function can access the task id easily.
 
-        let response = await fetch("http://localhost:8000/TaskDelete/",{
+        let response = await fetch("/TaskDelete/",{
 
            method: 'POST',
            credentials: "include",
@@ -340,13 +340,12 @@
     animation: gradientAnimation 15s ease infinite;
 }
 
-.container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+.button-container {
+     display: flex;
+     justify-content: center; /* Horizontally center the button */
+     align-items: center;    /* Vertically center the button if needed */
+     height: 50px;
 }
-
 </style>
 
 
@@ -405,36 +404,43 @@
 
 <div class="p-5 mb-4 bg-light text-dark rounded shadow-sm animated-background">
 
-    <div class="container">
         <form method="POST" enctype="multiple/form-data" on:submit|preventDefault={handleSubmit}>
             <br><h2 class="form-title">Add a Task</h2><br>
-            <div class="mb-3">
+            <div class="row">
+            <div class="col">
                 <legend for="name1">Enter the name of the task</legend><br>
                 <input class="form-control" type="text" placeholder="name" id="name1" name="name1" bind:value={name} required/>
             </div>
-            <div class="mb-3">
+            <div class="col">
                 <legend for="date">Enter the date to start the task</legend><br>
                 <input class="form-control" type="date" placeholder="date" id="date1" name="date" bind:value={date} required/>
             </div>
-            <div class="mb-3">
+            </div>
+            <div class="row">
+            <div class="col">
                 <legend for="time">Enter the time to start the task</legend><br>
                 <input class="form-control" type="time" placeholder="start Time" id="startTime1" name="startTime" bind:value={startTime} required/>
             </div>
-            <div class="mb-3">
+            <div class="col">
                 <legend for="amountOfTime">Enter the amount of time to spend the task</legend><br>
                 <input class="form-control" type="time" placeholder="Amount of to spend" id="amountOfTime1" name="amountOfTime" bind:value={amountOfTime} required/>
             </div>
-            <div class="mb-3">
+            </div>
+            <div class="row">
+            <div class="col">
                 <legend for="descriptionOfTheTask">Write the description of the task</legend><br>
                 <input class="form-control" type="text" placeholder="description of the task" id="descriptionOfTheTask1" name="descriptionOfTheTask" bind:value={descriptionOfTheTask} required/>
             </div>
-            <div class="mb-3">
+            <div class="col">
                 <legend for="uploadingTheImage">Upload the image</legend><br>
                 <input class="form-control" type="file" id="image" name="filename" bind:files required/>
             </div>
-            <button class="btn btn-primary" type="submit">Submit</button><br>
+            </div>
+            <br>
+            <div class="button-container">
+            <button class="btn btn-primary" type="submit">Submit</button>
+            </div><br>
         </form>
-    </div>
 
 </div>
 

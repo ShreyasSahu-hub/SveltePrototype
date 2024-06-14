@@ -2,7 +2,7 @@
 
     async function tests(){
 
-           let response = await fetch("http://localhost:8000/test_results/",{
+           let response = await fetch("/test_results/",{
 
                     method: 'GET',
                     credentials: "include"

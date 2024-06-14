@@ -12,6 +12,8 @@ from django.contrib import auth
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
 import json
+import random
+from datetime import datetime, timedelta, time
 
 import unittest
 from django.test.runner import DiscoverRunner
@@ -167,7 +169,7 @@ def Login(request: HttpRequest) -> HttpResponse:
 
                  auth.login(request, user)
 
-                 return redirect('http://localhost:8080/#/mainpage')
+                 return redirect('/#/mainpage')
 
             try:
 
@@ -242,6 +244,29 @@ def Login(request: HttpRequest) -> HttpResponse:
 
         return HttpResponse("Failed to login. It is either you didn't type the password correctly or didn't type the username correctly. \n Please go back to the login page and type correctly")
 
+@csrf_exempt
+def random_time():
+    """Generate a random time."""
+    hour = random.randint(0, 23)
+    minute = random.randint(0, 59)
+    return time(hour, minute)
+
+@csrf_exempt
+def random_duration():
+    """Generate a random duration in minutes."""
+    return random.randint(30, 180)  # Random duration between 30 minutes and 3 hours
+
+@csrf_exempt
+def random_description():
+    """Generate a random task description."""
+    descriptions = [
+        "Task description 1",
+        "Task description 2",
+        "Task description 3",
+        "Task description 4",
+        "Task description 5"
+    ]
+    return random.choice(descriptions)
 
 #This function is used to add the task to the database
 @csrf_exempt
@@ -275,6 +300,27 @@ def AddTask(request:HttpRequest) -> HttpResponse:
 
            print("sdfbsdfb")
 
+           '''
+
+           for i in range(500):
+            random_date_value = (datetime(2023, 1, 1) + timedelta(seconds=random.randrange(1000))).date()
+            random_start_time = random_time()
+            random_amount_of_time = random_time()
+            random_description_value = random_description()
+
+            task = TaskDetails.objects.create(
+                name= "task" + str(i+1),  # Make names unique
+                date=random_date_value,
+                startTime=random_start_time,
+                amountOfTime=random_amount_of_time,
+                descriptionOfTheTask=random_description_value,
+                image=request.FILES['image'],
+                owner=request.user
+            )
+
+            task.save()
+
+            '''
 
            #The function returns the task detail in a JSON format, for the function called handleSubmit in the MainPage.svelte to access it
            #The JSON format is chosen so the task details will be more readable and easier to access its fields.

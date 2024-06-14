@@ -18,7 +18,7 @@
         //The credentials field is used to remember the user's username, in order to fetch the calorie consumptions that belongs to the user
         //The API response will be stored in the response variable
 
-        let response = await fetch("http://localhost:8000/RetrieveCalorieDetails/",{
+        let response = await fetch("/RetrieveCalorieDetails/",{
 
               method: 'GET',
               credentials: "include"
@@ -34,6 +34,7 @@
 
 
         document.getElementById("content").innerHTML = `
+        <h3>This table shows the amount of calories that you consumed at each date</h3>
         <table class="table">
            <tr>
              <th>Amount of calories consumed</th>
@@ -42,8 +43,20 @@
            <tbody>
            </tbody>
         </table>
+        <br>
+        <br>
+        <h3>This table shows the total amount of calories at each month</h3>
+        <table class="table">
+           <tr>
+             <th>Month</th>
+             <th>Total calorie consumption</th>
+           </tr>
+           <tbody id="totalCalorie">
+           </tbody>
+        </table>
         `;
 
+        const calorieSummary = {};
 
         //The calorie detail is iterated by accessing it on a particular field called calorie_detail_retrieved from the API response.
         //Firstly, the date of the calorie intake will converted to UK date and time format, which is day/month/year hours:minutes:seconds.
@@ -56,7 +69,7 @@
             const date = new Date(calorie.currentdate);
 
             const day = String(date.getUTCDate()).padStart(2, '0');
-            const month = String(date.getUTCMonth() + 1).padStart(2, '0'); // Months are zero-based
+            const month = date.toLocaleString('default', { month: 'long' });  // Months are zero-based
             const year = date.getUTCFullYear();
 
             // Extract the time components
@@ -67,6 +80,14 @@
             // Format the date in DD/MM/YYYY format
             const ukDateFormat = `${day}/${month}/${year} ${hours}:${minutes}:${seconds}`;
 
+            const dateString = `month: ${month}   year: ${year}`;
+
+            if (calorieSummary[dateString]) {
+                 calorieSummary[dateString] += calorie.amountofcalories;
+            } else {
+                 calorieSummary[dateString] = calorie.amountofcalories;
+            }
+
             document.querySelector('tbody').innerHTML += `
 
                   <tr>
@@ -76,6 +97,15 @@
             `;
 
 
+        });
+
+        Object.keys(calorieSummary).forEach(date => {
+            document.getElementById('totalCalorie').innerHTML += `
+                <tr>
+                    <td>${date}</td>
+                    <td>${calorieSummary[date]} Kcal</td>
+                </tr>
+            `;
         });
 
     }

@@ -25,7 +25,7 @@
 
 
 
-     const URL = "https://api.edamam.com/api/recipes/v2?type=public&q=" + query + "&app_id=f0809293&app_key=4c9901ef9b16a44f50887e1926d8a00b&diet=" + dietType + "&calories=" + amountOfCalories + "&mealType=" + mealType;
+     let URL = "https://api.edamam.com/api/recipes/v2?type=public&q=" + query + "&app_id=f0809293&app_key=4c9901ef9b16a44f50887e1926d8a00b&diet=" + dietType + "&calories=" + amountOfCalories + "&mealType=" + mealType;
 
 
 
@@ -135,12 +135,12 @@
 
 
          //The amount of calories and the current date that the user has typed the food items and its quantities are passed to the python function that is mapped to the Django endpoint URL.
-         //called "http://localhost:8000/CalorieTracker/" which is defined in the url.py file in the protocolApplication folder. This is done through the POST http method to store the calories in the database.
+         //called "/CalorieTracker/" which is defined in the url.py file in the protocolApplication folder. This is done through the POST http method to store the calories in the database.
 
          var fd = new FormData();
          fd.append('listoffooditems', data.calories)
          fd.append('dateinserted', today)
-         let response1 = await fetch("http://localhost:8000/CalorieTracker/",{
+         let response1 = await fetch("/CalorieTracker/",{
             method: 'POST',
             credentials: "include",
             body: fd
@@ -174,14 +174,6 @@
     margin: 0 auto;
 }
 
-.vertical-center {
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
-
 h2, h5 {
     text-align: center;
 }
@@ -193,8 +185,10 @@ h2, h5 {
 }
 
 .center-container {
-    display: flex;
-    justify-content: center;  /* Centers horizontally */
+     display: flex;
+     justify-content: center; /* Horizontally center the button */
+     align-items: center;    /* Vertically center the button if needed */
+     height: 50px;
 }
 </style>
 
@@ -240,17 +234,20 @@ h2, h5 {
     <h2 class="my-4">Diet Plan</h2>
 
         <form on:submit|preventDefault={handleEDAMAMAPI}>
-            <div class="mb-3">
+            <div class="row">
+            <div class="col">
                 <h2 class="my-4">Enter the food items</h2>
                 <input class="form-control" type="text" id="query" placeholder="query" bind:value={query} required/>
             </div>
-            <div class="mb-3">
+            <div class="col">
                 <h2 class="my-4">Enter the maximum amount of calories that you want to intake</h2>
                 <input class="form-control" type="text" id="amountOfCalories" placeholder="amount of calories in kcal" bind:value={amountOfCalories} required/>
             </div>
-            <div class="mb-3">
+            </div>
+            <div class="row">
+            <div class="col">
             <h2 class="my-4">Diet Type</h2>
-            <select bind:value={dietType} id="dietType" required>
+            <select class="form-select" bind:value={dietType} id="dietType" required>
               <option value="high-fiber">High-Fiber</option>
               <option value="high-protein">High-Protein</option>
               <option value="low-carb">Low-Carb</option>
@@ -258,9 +255,9 @@ h2, h5 {
               <option value="low-sodium">Low-Sodium</option>
             </select>
             </div>
-            <div class="mb-3">
+            <div class="col">
             <h2 class="mb-4">Meal Type</h2>
-            <select bind:value={mealType} id="mealType" required>
+            <select class="form-select" bind:value={mealType} id="mealType" required>
               <option value="breakfast">Breakfast</option>
               <option value="brunch">Brunch</option>
               <option value="lunch">Lunch</option>
@@ -269,6 +266,7 @@ h2, h5 {
               <option value="teatime">TeaTime</option>
             </select>
             </div>
+            </div><br>
             <div class="center-container">
             <button class="btn btn-primary" type="submit">Submit</button>
             </div>
@@ -307,10 +305,10 @@ h2, h5 {
 
 <!--This is the link that will redirect the user to the web page that will show the user's calorie consumption history-->
 <div class="p-3 mb-2 bg-light text-dark rounded shadow-sm animated-background">
-<form>
 <div class="center-container">
-<a href="/#/calorieHistory/"><button class="btn btn-primary" type="submit">See your Calorie History</button></a><br><br>
-</div>
+<form>
+<a href="/#/calorieHistory" class="btn btn-primary">See your Calorie History</a><br><br>
 </form>
+</div>
 </div>
 <br>

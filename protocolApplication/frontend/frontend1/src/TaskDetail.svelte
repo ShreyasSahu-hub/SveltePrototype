@@ -45,7 +45,7 @@
 
 
 
-        let response = await fetch("http://localhost:8000/TaskUpdate/",{
+        let response = await fetch("/TaskUpdate/",{
 
            method: 'POST',
            credentials: "include",
@@ -117,6 +117,13 @@
     animation: gradientAnimation 15s ease infinite;
 }
 
+.button-container {
+     display: flex;
+     justify-content: center; /* Horizontally center the button */
+     align-items: center;    /* Vertically center the button if needed */
+     height: 50px;
+}
+
 </style>
 
 <!-- The link HTML tag refers to the bootstrap library in the specified URL to import necessary css classes to style the navigation bar components-->
@@ -179,34 +186,41 @@
 
     <h2 class="my-4">Update a Task</h2>
 
-    <div class="col-12 col-md-6">
+    <div>
         <form on:submit|preventDefault={handleSubmit}>
-            <div class="mb-3">
+            <div class="row">
+            <div class="col">
                 <legend for="name">Enter the name of the task</legend><br>
                 <input class="form-control" type="text" id="name1" placeholder="name" bind:value={name}/>
             </div>
-            <div class="mb-3">
+            <div class="col">
                 <legend for="date">Enter the date to start the task</legend><br>
                 <input class="form-control" type="date" id="date1" placeholder="date" bind:value={date}/>
             </div>
-            <div class="mb-3">
+            </div>
+            <div class="row">
+            <div class="col">
                 <legend for="time">Enter the time to start the task</legend><br>
                 <input class="form-control" type="time" id="startTime1" placeholder="start Time" bind:value={startTime}/>
             </div>
-            <div class="mb-3">
+            <div class="col">
                 <legend for="amountOfTime">Enter the amount of time to spend the task</legend><br>
                 <input class="form-control" type="time" id="amountOfTime1" placeholder="Amount of to spend" bind:value={amountOfTime}/>
             </div>
-            <div class="mb-3">
+            </div>
+            <div class="row">
+            <div class="col">
                 <legend for="descriptionOfTheTask">Write the description of the task</legend><br>
                 <input class="form-control" type="text" id="descriptionOfTheTask1" placeholder="description of the task" bind:value={descriptionOfTheTask}/>
             </div>
-            <div class="mb-3">
+            <div class="col">
                 <legend for="uploadingTheImage">Upload the image</legend><br>
                 <input class="form-control" id="image" type="file" bind:files/>
             </div>
-
+            </div><br>
+            <div class="button-container">
             <button class="btn btn-primary" type="submit">Submit</button>
+            </div>
         </form>
     </div>
 </div>
